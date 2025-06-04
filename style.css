@@ -1,0 +1,265 @@
+
+*
+{
+
+    margin: 0;
+    padding: 0;
+
+}
+
+body
+{
+
+    display: flex;
+    justify-content: center;
+
+}
+
+#calculator-body
+{
+
+    margin: 20px;
+
+    /*border-color: purple;*/
+    border-color: black;
+    border-style: solid;
+    background-color: gray;
+
+    border-radius: 10px;
+
+    width: 400px;
+    height: 570px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+button
+{
+
+    border-radius: 10px;
+
+}
+
+#inner-top
+{
+
+    /*border-color: red;*/
+
+    /*border-color: black;
+    border-style: solid;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-left: 0px;*/
+
+    width: auto;
+    height: 150px;
+
+    display: flex;
+
+}
+
+#calc-display
+{
+
+    margin: 10px;
+    padding: 10px;
+    border-color: black;
+    border-style: solid;
+
+    border-radius: 10px;
+
+    /*background-color: pink;*/
+    background-color: lightgray;
+
+    font-size: 40px;
+
+    flex-grow: 1;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+#inner-bottom
+{
+
+    /*border-color: yellow;*/
+
+    /*border-color: black;
+    border-style: solid;
+    border-top: 3px;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-left: 0px;*/
+
+    width: auto;
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+#inner-inner-A,
+#inner-inner-B,
+#inner-inner-C,
+#inner-inner-D,
+#inner-inner-E,
+#inner-inner-F
+{
+
+    /*border-style: solid;*/
+
+    flex-grow: 1;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+/*#inner-inner-A
+{
+    border-color: blue;
+}
+
+#inner-inner-B
+{
+    border-color: teal;
+}
+
+#inner-inner-C
+{
+    border-color: magenta;
+}
+
+#inner-inner-D
+{
+    border-color: lime;
+}
+
+#inner-inner-E
+{
+    border-color: gray;
+}
+
+#inner-inner-F
+{
+    border-color: lightblue;
+}*/
+
+#add-button
+{
+
+}
+
+#subtract-button
+{
+
+}
+
+#multiply-button
+{
+
+}
+
+#divide-button
+{
+
+
+
+}
+
+#clear-button
+{
+
+
+
+}
+
+.calc-button
+{
+
+    width: 75px;
+    height: 50px;
+
+    font-size: 30px;
+
+}
+
+.calc-button-clear
+{
+
+    width: 150px;
+    height: 50px;
+
+    font-size: 30px;
+
+}
+
+#one-button
+{
+
+
+
+}
+
+#two-button
+{
+
+
+
+}
+
+#three-button
+{
+
+
+
+}
+
+#four-button
+{
+
+
+
+}
+
+#five-button
+{
+
+
+
+}
+
+#six-button
+{
+
+
+
+}
+
+#seven-button
+{
+
+
+
+}
+
+#eight-button
+{
+
+
+
+}
+
+#nine-button
+{
+
+
+
+}
