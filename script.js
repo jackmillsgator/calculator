@@ -49,6 +49,21 @@ function operator(numA, operatorArg, numB)
 
 }
 
+function clear()
+{
+
+    numOne = "";
+    operatorSymbol = "";
+    numTwo = "";
+    operatorExists = false;
+    answerExists = false;
+    displayString = "";
+    answer = "";
+    answerNum = 0;
+    triedForbidden = false;
+
+}
+
 function display(stringArg)
 {
 
@@ -77,6 +92,7 @@ function display(stringArg)
     )
     {
         numOne = numOne + stringArg;
+        displayString = numOne;
     }
     else if
     (
@@ -120,8 +136,68 @@ function display(stringArg)
     )
     {
         numTwo = numTwo + stringArg;
+        displayString = numTwo;
     }
-    else if (stringArg === "=")
+    else if
+    (
+        (
+            stringArg === "+" ||
+            stringArg === "-" ||
+            stringArg === "*" ||
+            stringArg === "/"
+        )
+        &&
+        (
+            operatorExists === true
+        )
+        &&
+        (
+            numTwo !== ""
+        )
+    )
+    {
+
+        if (operatorSymbol === "+")
+        {
+            numOne = add(numOne, numTwo);
+        }
+        if (operatorSymbol === "-")
+        {
+            numOne = subtract(numOne, numTwo);
+        }
+        if (operatorSymbol === "*")
+        {
+            numOne = multiply(numOne, numTwo);
+        }
+        if (operatorSymbol === "/")
+        {
+
+            if (numTwo === "0")
+            {
+                triedForbidden = true;
+            }
+            else
+            {
+                numOne = divide(numOne, numTwo);
+            }
+
+        }
+
+        numTwo = "";
+        operatorSymbol = stringArg;
+        displayString = numOne;
+
+    }
+    else if
+    (
+        (
+            stringArg === "="
+        )
+        &&
+        (
+            (numOne !== "") || (numTwo !== "")
+        )
+    )
     {
 
         if (operatorSymbol === "+")
@@ -138,41 +214,60 @@ function display(stringArg)
         }
         if (operatorSymbol === "/")
         {
-            answer = divide(numOne, numTwo);
-        }
 
-        //calcDisplay.textContent = answer;
+            if (numTwo === "0")
+            {
+                triedForbidden = true;
+            }
+            else
+            {
+                answer = divide(numOne, numTwo);
+            }
+
+        }
 
         answerExists = true;
 
     }
     else if (stringArg === "C")
     {
-
-        numOne = "";
-        operatorSymbol = "";
-        numTwo = "";
-
-        /***********************************************/
-        /*****        MAKE ANSWER ARRAY ???        *****/
-        /***********************************************/
-        answer = "";
-
-        operatorExists = false;
-        answerExists = false;
-
+        clear();
     }
 
-    if (answerExists === false)
+    if (triedForbidden === true)
+    {
+        calcDisplay.textContent = "Uhhh, no...";
+    }
+    else if (answerExists === true)
     {
 
-        calcDisplay.textContent = `${numOne} ${operatorSymbol} ${numTwo}`;
+        if ( (answer % 1) !== 0)
+        {
+            calcDisplay.textContent = `${answer.toFixed(2)}`;
+        }
+        else
+        {
+            calcDisplay.textContent = `${answer}`;
+        }
+
+        clear();
 
     }
     else
     {
 
-        calcDisplay.textContent = answer;
+        calcDisplay.textContent = displayString;
+
+
+        if ( (Number(displayString) % 1) !== 0)
+        {
+            calcDisplay.textContent = Number(displayString).toFixed(2);
+        }
+        else
+        {
+            calcDisplay.textContent = displayString;
+        }
+
 
     }
 
@@ -183,8 +278,14 @@ let operatorSymbol = "";
 let numTwo = "";
 let operatorExists = false;
 let answerExists = false;
+let displayString = "";
+let answer = "";
+let answerNum = 0;
+let triedForbidden = false;
 
-let answer;
+
+
+
 
 const calcDisplay = document.querySelector(`#calc-display`);
 
